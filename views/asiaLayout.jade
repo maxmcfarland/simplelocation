@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/asiaStyle.css')
+  body
+    .header
+        h1.page-title LOCATION ASIA
+
+    ul.nav
+      li: a(href='/') HOME
+      li: a(href='/live') LIVE
+      li: a(href='/status') STATUS
+
+    .main-content
+        block content
+
+    .footer
+        p Copyright © 2020 Ricoh Innovations, Corporation

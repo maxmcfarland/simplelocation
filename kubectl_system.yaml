@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simplelocation-svc
+  labels:
+    app: simplelocation
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 3000
+  selector:
+    app: simplelocation
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: simplelocation-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: simplelocation
+    spec:
+      containers:
+      - name: svcp-simplelocation
+        image: gcr.io/svcp-simplelocation/simplelocation
+        ports:
+        - containerPort: 3000

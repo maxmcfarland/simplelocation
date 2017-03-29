@@ -1,2 +1,0 @@
-# simplelocation
-Simple Nodejs Website
