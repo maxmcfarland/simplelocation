@@ -70,10 +70,15 @@ docker rmi $(docker images | grep "svcp" | awk '{print $3}') --force
 gcloud container clusters create simplelocation-cluster-asia-ne --zone asia-northeast1-a --scopes "cloud-platform" --num-nodes 3
 gcloud container clusters create simplelocation-cluster-europe --zone europe-west1-b --scopes "cloud-platform" --num-nodes 3
 
-// Reinit your cloud stuff - switch your default cluster to asia-northeast1
-gcloud init      
+// Add your credentials to kubectl
+gcloud container clusters get-credentials simplelocation-cluster-asia-ne --zone=asia-northeast1-a
+gcloud container clusters get-credentials simplelocation-cluster-europe --zone europe-west1-b
 
-// Switch over your credentials to point to the asia-northeast1
-gcloud container clusters get-credentials svcp-simplelocation-cluster-asia-ne --zone=asia-northeast1-a
+// Get kubectl contexts:
+kubectl config get-contexts
+
+// You can switch your kubectl context by:
+kubectl config use-context gke_svcp-simplelocation_asia-northeast1-a_simplelocation-cluster-asia-ne   
+
 
 // Then you can deploy as above
