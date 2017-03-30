@@ -4,6 +4,7 @@
 //    deploy your nodejs website, and see it running in the
 //    region.
 //----------------------------------------------------------
+https://github.com/maxmcfarland/simplelocation.git
 
 // Create a new gloud config that points to our new project in GCP
 gcloud init
